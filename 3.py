@@ -1,15 +1,23 @@
 class FlatIterator:
 
     def __init__(self, list_of_list):
-        self.list_of_list = list_of_list
+        lst = []
+        for i in list_of_list:
+            if isinstance(i, list): lst += i
+            else: lst.append(i)
+        for i in lst:
+            if isinstance(i, list):
+                return self.__init__(lst)
+        self.list = lst
 
     def __iter__(self):
-        ...
+        self.index = -1
         return self
     
     def __next__(self):
-        ...
-        return item
+        self.index += 1
+        if self.index == len(self.list): raise StopIteration
+        return self.list[self.index]
 
 
 def test_3():
