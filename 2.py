@@ -2,10 +2,9 @@ import types
 
 
 def flat_generator(list_of_lists):
-
-    ...
-    yield
-    ...
+    list = sum(list_of_lists, [])
+    for i in list:
+        yield i
 
 
 def test_2():
