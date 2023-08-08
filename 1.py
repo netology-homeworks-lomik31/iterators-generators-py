@@ -1,15 +1,16 @@
 class FlatIterator:
 
     def __init__(self, list_of_list):
-        ...
+        self.list = sum(list_of_list, [])
 
     def __iter__(self):
-        ...
+        self.index = -1
         return self
 
     def __next__(self):
-        ...
-        return item
+        self.index += 1
+        if self.index == len(self.list): raise StopIteration
+        return self.list[self.index]
 
 
 def test_1():
